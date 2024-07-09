@@ -1,6 +1,6 @@
 name: pre-commit
 
-on: workflow_dispatch
+on: push
 
 jobs:
   pre-commit:
