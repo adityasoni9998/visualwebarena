@@ -12,6 +12,7 @@ jobs:
       MAP: "http://ec2-3-131-244-37.us-east-2.compute.amazonaws.com:3000"
       WIKIPEDIA: "http://ec2-3-131-244-37.us-east-2.compute.amazonaws.com:8888/wikipedia_en_all_maxi_2022-05/A/User:The_other_Kiwix_guy/Landing"
       HOMEPAGE: "PASS"
+      CLASSIFIEDS: http://ec2-3-13-232-171.us-east-2.compute.amazonaws.com:9980/
     strategy:
       max-parallel: 5
     steps:
