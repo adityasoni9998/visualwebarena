@@ -25,7 +25,7 @@ from playwright.sync_api import (
 
 DATASET = os.environ["DATASET"]
 if DATASET == "visualwebarena":
-    from browser_env.env_config import (
+    from .env_config import (
         CLASSIFIEDS,
         CLASSIFIEDS_RESET_TOKEN,
     )
