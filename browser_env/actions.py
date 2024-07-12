@@ -1299,7 +1299,7 @@ def execute_action(
                 )
 
         case ActionTypes.PAGE_FOCUS:
-            page = browser_ctx.pages[action["page_number"]]
+            page = browser_ctx.pages[int(action["page_number"])]
             page.bring_to_front()
         case ActionTypes.NEW_TAB:
             page = browser_ctx.new_page()
