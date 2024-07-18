@@ -14,6 +14,6 @@ dynamic = ["dependencies"]
 dependencies = {file = ["requirements.txt"]}
 
 [tool.setuptools]
-packages = ["visualwebarena", "visualwebarena.browser_env", "visualwebarena.agent", "visualwebarena.evaluation_harness", "visualwebarena.llms", "visualwebarena.llms.providers"]
-package-dir = {"visualwebarena" = "config_files", "visualwebarena.browser_env" = "browser_env", "visualwebarena.agent" = "agent", "visualwebarena.evaluation_harness" = "evaluation_harness", "visualwebarena.llms" = "llms", "visualwebarena.llms.providers" = "llms/providers"}
+packages = ["visualwebarena", "visualwebarena.browser_env", "visualwebarena.agent", "visualwebarena.evaluation_harness", "visualwebarena.llms", "visualwebarena.llms.providers", "visualwebarena.coco_images"]
+package-dir = {"visualwebarena" = "config_files", "visualwebarena.browser_env" = "browser_env", "visualwebarena.agent" = "agent", "visualwebarena.evaluation_harness" = "evaluation_harness", "visualwebarena.llms" = "llms", "visualwebarena.llms.providers" = "llms/providers", "visualwebarena.coco_images" = "coco_images"}
 package-data = {"visualwebarena" = ["test_raw.json"]}
