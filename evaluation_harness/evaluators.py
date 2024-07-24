@@ -364,7 +364,10 @@ class HTMLContentExactEvaluator(Evaluator):
             locator: str = target["locator"]  # js element locator
 
             # navigate to that url
+            prev_page = None
             if target_url != "last":
+                prev_page = page
+                page = page.context.new_page()
                 page.goto(target_url)
                 time.sleep(3)  # TODO [shuyanzh]: fix this hard-coded sleep
 
@@ -477,6 +480,11 @@ class HTMLContentExactEvaluator(Evaluator):
                     f"Unknown required_contents: {target['required_contents'].keys()}"
                 )
 
+            if prev_page:
+                page.close()
+                page = prev_page
+                prev_page = None
+
         return score
 
 
@@ -508,7 +516,10 @@ class PageImageEvaluator(Evaluator):
                 target_url = eval(func)
 
             # navigate to that url
+            prev_page = None
             if target_url != "last":
+                prev_page = page
+                page = page.context.new_page()
                 page.goto(target_url)
                 time.sleep(3)  # TODO(jykoh): fix this hard-coded sleep
 
@@ -600,6 +611,11 @@ class PageImageEvaluator(Evaluator):
                                 found_exact_match = True
                                 break
                     score *= float(found_exact_match)
+
+            if prev_page:
+                page.close()
+                page = prev_page
+                prev_page = None
 
         return score
 
