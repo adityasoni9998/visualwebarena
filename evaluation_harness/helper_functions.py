@@ -1,4 +1,5 @@
 """Implements helper functions to assist evaluation cases where other evaluators are not suitable."""
+import os
 import json
 from datetime import datetime, timezone
 from typing import Any, Union
@@ -19,6 +20,7 @@ from ..llms.providers.openai_utils import (
     generate_from_openai_chat_completion,
 )
 
+OPENAI_MODEL = os.environ.get('OPENAI_MODEL', 'gpt-4-1106-preview')
 
 class PseudoPage:
     def __init__(self, original_page: Page, url: str):
@@ -593,7 +595,7 @@ def llm_fuzzy_match(pred: str, reference: str, question: str) -> float:
     ]
 
     response = generate_from_openai_chat_completion(
-        model="gpt-4-1106-preview",
+        model=OPENAI_MODEL,
         messages=messages,
         temperature=0,
         max_tokens=768,
@@ -628,7 +630,7 @@ def llm_ua_match(pred: str, reference: str, question: str) -> float:
     ]
 
     response = generate_from_openai_chat_completion(
-        model="gpt-4-1106-preview",
+        model=OPENAI_MODEL,
         messages=messages,
         temperature=0,
         max_tokens=768,
